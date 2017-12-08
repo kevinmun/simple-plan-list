@@ -34,7 +34,9 @@ final class PlanBuilder: Builder<PlanDependency>, PlanBuildable {
     func build(withListener listener: PlanListener?) -> PlanRouting {
         let component = PlanComponent(dependency: dependency)
         let viewController = PlanViewController()
-        let interactor = PlanInteractor(presenter: viewController, planRepository: component.planRepository)
+        let planTableViewModel = PlanTableViewModel(viewController: viewController)
+        viewController.viewModel = planTableViewModel
+        let interactor = PlanInteractor(presenter: planTableViewModel, planRepository: component.planRepository)
         interactor.listener = listener
         return PlanRouter(interactor: interactor, viewController: viewController)
     }

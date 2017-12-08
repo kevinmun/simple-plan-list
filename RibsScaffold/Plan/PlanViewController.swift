@@ -17,13 +17,10 @@ protocol PlanPresentableListener: class {
 
 let CellIdentifier = "PlanUITableViewCell"
 
-final class PlanViewController: UIViewController, PlanPresentable, PlanViewControllable {
+final class PlanViewController: UIViewController, PlanViewControllable {
     /// The UIKit view representation of this view.
     public final var uiviewController: UIViewController { return self }
-
-    weak var listener: PlanPresentableListener?
-    
-    var dataSource: [Plan]?
+    var viewModel: PlanTableViewModel?
     
     init() {
         super.init(nibName: nil, bundle: nil)
@@ -41,17 +38,17 @@ final class PlanViewController: UIViewController, PlanPresentable, PlanViewContr
     }
     
     // Mark : - PlanPresentable
-    func updateSource(plans: [Plan]) {
-        dataSource = plans
+    func reloadData() {
         tableView.reloadData()
         setLoading(active: false)
     }
     
     func setLoading(active: Bool) {
         if active {
-            refreshControl.beginRefreshing()
+            self.view.activityIndicatorView.startAnimating()
         } else {
-            refreshControl.endRefreshing()
+            self.view.activityIndicatorView.stopAnimating()
+            self.refreshControl.endRefreshing()
         }
     }
     
@@ -80,13 +77,13 @@ final class PlanViewController: UIViewController, PlanPresentable, PlanViewContr
     }
     
     @objc private func refreshPlan(_ sender: Any) {
-        listener?.refreshPlan()
+        viewModel?.refreshPlan()
     }
 }
 
 extension PlanViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let count = dataSource?.count {
+        if let count = viewModel?.dataSource?.count {
             return count
         }
         return 0
@@ -98,8 +95,8 @@ extension PlanViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: CellIdentifier, for: indexPath) as! PlanTableViewCell
-        if let plan = dataSource?[indexPath.row] {
-            cell.mainLabel.text = plan.title
+        if let planViewModel = viewModel?.dataSource?[indexPath.row] {
+            cell.viewModel = planViewModel
         }
         return cell
     }

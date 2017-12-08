@@ -32,6 +32,7 @@
 		7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */; };
 		7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */; };
 		7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */; };
+		7F9832221FDA5CA8008AF04B /* PlanTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9832211FDA5CA8008AF04B /* PlanTableViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -84,6 +85,7 @@
 		7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Association.swift"; sourceTree = "<group>"; };
+		7F9832211FDA5CA8008AF04B /* PlanTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewModel.swift; sourceTree = "<group>"; };
 		9953AFF8DF1C826048893F0B /* Pods-RibsScaffold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RibsScaffold.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RibsScaffold/Pods-RibsScaffold.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -223,6 +225,7 @@
 				7F5B966C1FD8E74700F78FCA /* PlanBuilder.swift */,
 				7F5B966D1FD8E74700F78FCA /* PlanInteractor.swift */,
 				7F5B96811FD9354C00F78FCA /* PlanTableViewCell.swift */,
+				7F9832211FDA5CA8008AF04B /* PlanTableViewModel.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7F9832221FDA5CA8008AF04B /* PlanTableViewModel.swift in Sources */,
 				7F5B96791FD8E7EB00F78FCA /* SearchBuilder.swift in Sources */,
 				7F5B96661FD8E50200F78FCA /* RootViewController.swift in Sources */,
 				7F5B96651FD8E50200F78FCA /* RootRouter.swift in Sources */,

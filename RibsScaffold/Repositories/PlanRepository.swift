@@ -29,5 +29,6 @@ final class MockPlanRepository: PlanRequestable {
         
         return planObservable
             .delay(3.0, scheduler: ConcurrentDispatchQueueScheduler.init(qos: .default))
+            .observeOn(MainScheduler.instance)
     }
 }

@@ -11,6 +11,11 @@ import SnapKit
 
 class PlanTableViewCell: UITableViewCell {
     static let Height: CGFloat = 100
+    var viewModel: PlanTableCellViewModel? {
+        didSet {
+            invalidateView()
+        }
+    }
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -56,6 +61,10 @@ class PlanTableViewCell: UITableViewCell {
             maker.centerY.equalTo(subContentView)
         }
         
+    }
+    
+    private func invalidateView() {
+        mainLabel.text = viewModel?.planTitle
     }
     
    @objc private func clickBox(sender: UIButton) {

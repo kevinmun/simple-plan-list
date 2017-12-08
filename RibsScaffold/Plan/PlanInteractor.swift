@@ -15,7 +15,11 @@ protocol PlanRouting: ViewableRouting {
 
 protocol PlanPresentable: Presentable {
     weak var listener: PlanPresentableListener? { get set }
+}
+
+protocol PlanMainPresentable: PlanPresentable {
     func setLoading(active: Bool)
+    func reloadData()
     func updateSource(plans: [Plan])
 }
 
@@ -23,13 +27,13 @@ protocol PlanListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class PlanInteractor: PresentableInteractor<PlanPresentable>, PlanInteractable, PlanPresentableListener {
+final class PlanInteractor: PresentableInteractor<PlanMainPresentable>, PlanInteractable, PlanPresentableListener {
 
     weak var router: PlanRouting?
     weak var listener: PlanListener?
     weak var planRepository: PlanRequestable?
 
-    init(presenter: PlanPresentable, planRepository: PlanRequestable) {
+    init(presenter: PlanMainPresentable, planRepository: PlanRequestable) {
         self.planRepository = planRepository
         super.init(presenter: presenter)
         presenter.listener = self
