@@ -7,7 +7,7 @@
 //
 import RIBs
 import UIKit
-
+import Firebase
 /// Game app delegate.
 @UIApplicationMain
 public class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -31,7 +31,7 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         self.launchRouter = launchRouter
         self.planRepository = component.planRepository
         launchRouter.launchFromWindow(window)
-        
+        FirebaseApp.configure()
         return true
     }
     

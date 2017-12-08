@@ -19,7 +19,7 @@ final class MockPlanRepository: PlanRequestable {
          let planObservable = Observable<[Plan]>.create { observer in
             var plans = [Plan]()
             for index in 0..<10 {
-                let plan = Plan(title: "Plan \(index)", imageUrl: "imageUrl \(index)")
+                let plan = Plan(title: "Plan \(index)", imageUrl: "imageUrl \(index)", type: PlanType(rawValue: index%3)!)
                 plans.append(plan)
             }
             observer.onNext(plans)

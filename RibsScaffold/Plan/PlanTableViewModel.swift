@@ -12,10 +12,19 @@ import RIBs
 class PlanTableCellViewModel: PlanPresentable {
     var listener: PlanPresentableListener?
     private var plan: Plan?
-    
     var planTitle: String? {
         get {
             return plan?.title
+        }
+    }
+    var planImageUrl: String? {
+        get {
+            return plan?.imageUrl
+        }
+    }
+    var planType: PlanType? {
+        get {
+            return plan?.type
         }
     }
     

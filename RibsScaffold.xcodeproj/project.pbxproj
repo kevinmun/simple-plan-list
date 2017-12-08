@@ -33,6 +33,11 @@
 		7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */; };
 		7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */; };
 		7F9832221FDA5CA8008AF04B /* PlanTableViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9832211FDA5CA8008AF04B /* PlanTableViewModel.swift */; };
+		7F9832241FDA70FA008AF04B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7F9832231FDA70FA008AF04B /* GoogleService-Info.plist */; };
+		7F98322B1FDA734C008AF04B /* LoggedOutRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9832271FDA734C008AF04B /* LoggedOutRouter.swift */; };
+		7F98322C1FDA734C008AF04B /* LoggedOutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9832281FDA734C008AF04B /* LoggedOutViewController.swift */; };
+		7F98322D1FDA734C008AF04B /* LoggedOutBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F9832291FDA734C008AF04B /* LoggedOutBuilder.swift */; };
+		7F98322E1FDA734C008AF04B /* LoggedOutInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98322A1FDA734C008AF04B /* LoggedOutInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +91,12 @@
 		7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Association.swift"; sourceTree = "<group>"; };
 		7F9832211FDA5CA8008AF04B /* PlanTableViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewModel.swift; sourceTree = "<group>"; };
+		7F9832231FDA70FA008AF04B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		7F9832251FDA72CA008AF04B /* RibsScaffold.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = RibsScaffold.entitlements; sourceTree = "<group>"; };
+		7F9832271FDA734C008AF04B /* LoggedOutRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutRouter.swift; sourceTree = "<group>"; };
+		7F9832281FDA734C008AF04B /* LoggedOutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutViewController.swift; sourceTree = "<group>"; };
+		7F9832291FDA734C008AF04B /* LoggedOutBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutBuilder.swift; sourceTree = "<group>"; };
+		7F98322A1FDA734C008AF04B /* LoggedOutInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoggedOutInteractor.swift; sourceTree = "<group>"; };
 		9953AFF8DF1C826048893F0B /* Pods-RibsScaffold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RibsScaffold.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RibsScaffold/Pods-RibsScaffold.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -157,15 +168,18 @@
 		7F5B96241FD8DE4000F78FCA /* RibsScaffold */ = {
 			isa = PBXGroup;
 			children = (
+				7F9832251FDA72CA008AF04B /* RibsScaffold.entitlements */,
 				7F98321C1FDA2716008AF04B /* Extensions */,
 				7F5B967E1FD9179C00F78FCA /* Repositories */,
 				7F5B967B1FD915F000F78FCA /* Models */,
 				7F5B96721FD8E7CC00F78FCA /* Search */,
 				7F5B96691FD8E71900F78FCA /* Plan */,
 				7F5B96561FD8DFFF00F78FCA /* Root */,
+				7F9832261FDA7326008AF04B /* LoggedOut */,
 				7F5B96551FD8DFEC00F78FCA /* AppStart */,
 				7F5B96531FD8DE7600F78FCA /* Resources */,
 				7F5B96311FD8DE4000F78FCA /* Info.plist */,
+				7F9832231FDA70FA008AF04B /* GoogleService-Info.plist */,
 			);
 			path = RibsScaffold;
 			sourceTree = "<group>";
@@ -267,6 +281,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		7F9832261FDA7326008AF04B /* LoggedOut */ = {
+			isa = PBXGroup;
+			children = (
+				7F9832271FDA734C008AF04B /* LoggedOutRouter.swift */,
+				7F9832281FDA734C008AF04B /* LoggedOutViewController.swift */,
+				7F9832291FDA734C008AF04B /* LoggedOutBuilder.swift */,
+				7F98322A1FDA734C008AF04B /* LoggedOutInteractor.swift */,
+			);
+			path = LoggedOut;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -339,6 +364,11 @@
 					7F5B96211FD8DE4000F78FCA = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 					7F5B96351FD8DE4000F78FCA = {
 						CreatedOnToolsVersion = 9.2;
@@ -379,6 +409,7 @@
 			files = (
 				7F5B96301FD8DE4000F78FCA /* LaunchScreen.storyboard in Resources */,
 				7F5B962D1FD8DE4000F78FCA /* Assets.xcassets in Resources */,
+				7F9832241FDA70FA008AF04B /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,6 +484,8 @@
 			files = (
 				7F9832221FDA5CA8008AF04B /* PlanTableViewModel.swift in Sources */,
 				7F5B96791FD8E7EB00F78FCA /* SearchBuilder.swift in Sources */,
+				7F98322E1FDA734C008AF04B /* LoggedOutInteractor.swift in Sources */,
+				7F98322D1FDA734C008AF04B /* LoggedOutBuilder.swift in Sources */,
 				7F5B96661FD8E50200F78FCA /* RootViewController.swift in Sources */,
 				7F5B96651FD8E50200F78FCA /* RootRouter.swift in Sources */,
 				7F5B96771FD8E7EB00F78FCA /* SearchRouter.swift in Sources */,
@@ -470,7 +503,9 @@
 				7F5B96671FD8E50200F78FCA /* RootBuilder.swift in Sources */,
 				7F5B96711FD8E74700F78FCA /* PlanInteractor.swift in Sources */,
 				7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */,
+				7F98322B1FDA734C008AF04B /* LoggedOutRouter.swift in Sources */,
 				7F5B96821FD9354C00F78FCA /* PlanTableViewCell.swift in Sources */,
+				7F98322C1FDA734C008AF04B /* LoggedOutViewController.swift in Sources */,
 				7F5B967D1FD9160100F78FCA /* Plan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -630,6 +665,7 @@
 			baseConfigurationReference = 9953AFF8DF1C826048893F0B /* Pods-RibsScaffold.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RibsScaffold/RibsScaffold.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JG6ZKHD844;
 				INFOPLIST_FILE = RibsScaffold/Info.plist;
@@ -646,6 +682,7 @@
 			baseConfigurationReference = 092F72144202D9EC4903FF3C /* Pods-RibsScaffold.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = RibsScaffold/RibsScaffold.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = JG6ZKHD844;
 				INFOPLIST_FILE = RibsScaffold/Info.plist;

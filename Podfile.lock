@@ -1,4 +1,23 @@
 PODS:
+  - Firebase/Core (4.6.0):
+    - FirebaseAnalytics (= 4.0.5)
+    - FirebaseCore (= 4.0.11)
+  - FirebaseAnalytics (4.0.5):
+    - FirebaseCore (~> 4.0)
+    - FirebaseInstanceID (~> 2.0)
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+    - nanopb (~> 0.3)
+  - FirebaseCore (4.0.11):
+    - GoogleToolboxForMac/NSData+zlib (~> 2.1)
+  - FirebaseInstanceID (2.0.6)
+  - GoogleToolboxForMac/Defines (2.1.3)
+  - GoogleToolboxForMac/NSData+zlib (2.1.3):
+    - GoogleToolboxForMac/Defines (= 2.1.3)
+  - nanopb (0.3.8):
+    - nanopb/decode (= 0.3.8)
+    - nanopb/encode (= 0.3.8)
+  - nanopb/decode (0.3.8)
+  - nanopb/encode (0.3.8)
   - RIBs (0.9.1):
     - RxSwift (~> 4.0)
   - RxCocoa (4.0.0):
@@ -7,16 +26,23 @@ PODS:
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
+  - Firebase/Core
   - RIBs (~> 0.9)
   - RxCocoa (~> 4.0.0)
   - SnapKit (~> 4.0.0)
 
 SPEC CHECKSUMS:
+  Firebase: 27321a925aa85520618255a7c630859e0502ccbd
+  FirebaseAnalytics: 5b02a63ead2c3f0259cfc7f15e053e440587ecf8
+  FirebaseCore: 2a946ece8fbe3ce1fdeeb55324f273caade22df9
+  FirebaseInstanceID: 24958382a1011bba5aaff37e334e7a650b9118f5
+  GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
+  nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   RIBs: 879184fbca567425c488d6b3d14a9c5abfbf9d47
   RxCocoa: d62846ca96495d862fa4c59ea7d87e5031d7340e
   RxSwift: fd680d75283beb5e2559486f3c0ff852f0d35334
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 74d1cab00d5a7cf6bd79f632fe7ec812f698ffab
+PODFILE CHECKSUM: 5888c3aed6d689faec2b5f7f65c92de6a1c6aa05
 
 COCOAPODS: 1.2.1

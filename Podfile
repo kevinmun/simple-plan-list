@@ -9,4 +9,5 @@ target 'RibsScaffold' do
   pod 'RIBs', '~> 0.9'
   pod 'SnapKit', '~> 4.0.0'
   pod 'RxCocoa', '~> 4.0.0'
+  pod 'Firebase/Core'
 end

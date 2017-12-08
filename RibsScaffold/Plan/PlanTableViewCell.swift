@@ -44,6 +44,7 @@ class PlanTableViewCell: UITableViewCell {
         }
         mainLabel.lineBreakMode = .byTruncatingTail
         mainLabel.numberOfLines = 3
+        mainLabel.textColor = UIColor.white
         
         subContentView.layer.cornerRadius = 3
         subContentView.layer.shadowOffset = CGSize.zero
@@ -64,8 +65,30 @@ class PlanTableViewCell: UITableViewCell {
     }
     
     private func invalidateView() {
-        mainLabel.text = viewModel?.planTitle
+        guard let viewModel = viewModel else {
+            return
+        }
+        mainLabel.text = viewModel.planTitle
+        if let planType = viewModel.planType {
+            var color: UIColor?
+            switch(planType) {
+            case .Important:
+                color = UIColor.red
+                break;
+            case .SemiImportant:
+                color = UIColor.purple
+                break;
+            case .Normal:
+                color = UIColor.blue
+                break;
+            case .Trivial:
+                color = UIColor.green
+                break;
+            }
+            subContentView.backgroundColor = color
+        }
     }
+    
     
    @objc private func clickBox(sender: UIButton) {
         sender.isSelected = !sender.isSelected
