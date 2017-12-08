@@ -45,6 +45,11 @@ final class PlanInteractor: PresentableInteractor<PlanPresentable>, PlanInteract
         // TODO: Pause any business logic.
     }
     
+    // Mark : - PlanPresentableListener
+    func refreshPlan() {
+        getPlans()
+    }
+    
     // Mark : - Private
     private func getPlans() {
         planRepository?.getPlans()

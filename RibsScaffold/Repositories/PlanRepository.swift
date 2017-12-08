@@ -16,11 +16,18 @@ protocol PlanRequestable: class {
 final class MockPlanRepository: PlanRequestable {
     //TODO: this should connect to a service which would return an observable stream
     func getPlans() -> Observable<[Plan]> {
-        var plans = [Plan]()
-        for index in 0..<10 {
-            let plan = Plan(title: "Plan \(index)", imageUrl: "imageUrl \(index)")
-            plans.append(plan)
+         let planObservable = Observable<[Plan]>.create { observer in
+            var plans = [Plan]()
+            for index in 0..<10 {
+                let plan = Plan(title: "Plan \(index)", imageUrl: "imageUrl \(index)")
+                plans.append(plan)
+            }
+            observer.onNext(plans)
+            observer.onCompleted()
+            return Disposables.create()
         }
-        return Observable.just(plans).delay(3, scheduler: MainScheduler.instance)
+        
+        return planObservable
+            .delay(3.0, scheduler: ConcurrentDispatchQueueScheduler.init(qos: .default))
     }
 }

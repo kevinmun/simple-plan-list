@@ -12,9 +12,7 @@ import UIKit
 import SnapKit
 
 protocol PlanPresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
+    func refreshPlan()
 }
 
 let CellIdentifier = "PlanUITableViewCell"
@@ -51,13 +49,15 @@ final class PlanViewController: UIViewController, PlanPresentable, PlanViewContr
     
     func setLoading(active: Bool) {
         if active {
-            view.activityIndicatorView.startAnimating()
+            refreshControl.beginRefreshing()
         } else {
-            view.activityIndicatorView.stopAnimating()
+            refreshControl.endRefreshing()
         }
     }
     
     // MARK : - Private
+    private let refreshControl = UIRefreshControl()
+    
     private lazy var tableView: UITableView = {
         return UITableView(frame: CGRect.zero)
     }()
@@ -74,6 +74,13 @@ final class PlanViewController: UIViewController, PlanPresentable, PlanViewContr
         }
         tableView.rowHeight = UITableViewAutomaticDimension
         tableView.estimatedRowHeight = 140
+        
+        tableView.refreshControl = refreshControl
+        refreshControl.addTarget(self, action: #selector(refreshPlan(_:)), for: .valueChanged)
+    }
+    
+    @objc private func refreshPlan(_ sender: Any) {
+        listener?.refreshPlan()
     }
 }
 
