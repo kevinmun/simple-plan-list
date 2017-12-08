@@ -29,6 +29,11 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
         interactor.router = self
     }
     
+    override func didLoad() {
+        attachChild(self.planRouter)
+        attachChild(self.searchRouter)
+    }
+    
     
     // MARK : - Private
     private var planRouter: PlanRouting

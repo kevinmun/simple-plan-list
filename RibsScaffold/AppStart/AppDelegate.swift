@@ -26,8 +26,10 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
         let window = UIWindow(frame: UIScreen.main.bounds)
         self.window = window
         
-        let launchRouter = RootBuilder(dependency: AppComponent()).build()
+        let component = AppComponent()
+        let launchRouter = RootBuilder(dependency: component).build()
         self.launchRouter = launchRouter
+        self.planRepository = component.planRepository
         launchRouter.launchFromWindow(window)
         
         return true
@@ -36,5 +38,6 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Private
     
     private var launchRouter: LaunchRouting?
+    private var planRepository: PlanRequestable?
 }
 

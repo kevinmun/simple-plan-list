@@ -8,7 +8,11 @@
 
 import RIBs
 
-class AppComponent: Component<EmptyDependency>, RootDependency, SearchDependency, PlanDependency {
+class AppComponent: Component<EmptyDependency>, RootDependency {
+    var planRepository: PlanRequestable {
+        return shared { MockPlanRepository() }
+    }
+    
     init() {
         super.init(dependency: EmptyComponent())
     }

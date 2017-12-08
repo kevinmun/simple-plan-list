@@ -9,13 +9,13 @@
 import RIBs
 
 protocol RootDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var planRepository: PlanRequestable { get }
 }
 
-final class RootComponent: Component<RootDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+final class RootComponent: Component<RootDependency>, SearchDependency, PlanDependency {
+    var planRepository: PlanRequestable {
+        return dependency.planRepository
+    }
 }
 
 // MARK: - Builder
@@ -35,8 +35,8 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let viewController = RootViewController()
         let interactor = RootInteractor(presenter: viewController)
         
-        let planRouter = PlanBuilder(dependency: AppComponent()).build(withListener: nil)
-        let searchRouter = SearchBuilder(dependency: AppComponent()).build(withListener: nil)
+        let planRouter = PlanBuilder(dependency: component).build(withListener: nil)
+        let searchRouter = SearchBuilder(dependency: component).build(withListener: nil)
         
         let tabBarList = [planRouter.viewControllable, searchRouter.viewControllable] as? [UIViewController]
         viewController.viewControllers = tabBarList

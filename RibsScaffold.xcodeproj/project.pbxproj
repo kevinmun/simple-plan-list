@@ -26,6 +26,12 @@
 		7F5B96781FD8E7EB00F78FCA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96741FD8E7EB00F78FCA /* SearchViewController.swift */; };
 		7F5B96791FD8E7EB00F78FCA /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96751FD8E7EB00F78FCA /* SearchBuilder.swift */; };
 		7F5B967A1FD8E7EB00F78FCA /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96761FD8E7EB00F78FCA /* SearchInteractor.swift */; };
+		7F5B967D1FD9160100F78FCA /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B967C1FD9160100F78FCA /* Plan.swift */; };
+		7F5B96801FD917B200F78FCA /* PlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B967F1FD917B200F78FCA /* PlanRepository.swift */; };
+		7F5B96821FD9354C00F78FCA /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96811FD9354C00F78FCA /* PlanTableViewCell.swift */; };
+		7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */; };
+		7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */; };
+		7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +78,12 @@
 		7F5B96741FD8E7EB00F78FCA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		7F5B96751FD8E7EB00F78FCA /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
 		7F5B96761FD8E7EB00F78FCA /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		7F5B967C1FD9160100F78FCA /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
+		7F5B967F1FD917B200F78FCA /* PlanRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanRepository.swift; sourceTree = "<group>"; };
+		7F5B96811FD9354C00F78FCA /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
+		7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
+		7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Association.swift"; sourceTree = "<group>"; };
 		9953AFF8DF1C826048893F0B /* Pods-RibsScaffold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RibsScaffold.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RibsScaffold/Pods-RibsScaffold.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -143,6 +155,9 @@
 		7F5B96241FD8DE4000F78FCA /* RibsScaffold */ = {
 			isa = PBXGroup;
 			children = (
+				7F98321C1FDA2716008AF04B /* Extensions */,
+				7F5B967E1FD9179C00F78FCA /* Repositories */,
+				7F5B967B1FD915F000F78FCA /* Models */,
 				7F5B96721FD8E7CC00F78FCA /* Search */,
 				7F5B96691FD8E71900F78FCA /* Plan */,
 				7F5B96561FD8DFFF00F78FCA /* Root */,
@@ -207,6 +222,7 @@
 				7F5B966B1FD8E74700F78FCA /* PlanViewController.swift */,
 				7F5B966C1FD8E74700F78FCA /* PlanBuilder.swift */,
 				7F5B966D1FD8E74700F78FCA /* PlanInteractor.swift */,
+				7F5B96811FD9354C00F78FCA /* PlanTableViewCell.swift */,
 			);
 			path = Plan;
 			sourceTree = "<group>";
@@ -220,6 +236,32 @@
 				7F5B96761FD8E7EB00F78FCA /* SearchInteractor.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		7F5B967B1FD915F000F78FCA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				7F5B967C1FD9160100F78FCA /* Plan.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		7F5B967E1FD9179C00F78FCA /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				7F5B967F1FD917B200F78FCA /* PlanRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		7F98321C1FDA2716008AF04B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */,
+				7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */,
+				7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -416,10 +458,16 @@
 				7F5B966E1FD8E74700F78FCA /* PlanRouter.swift in Sources */,
 				7F5B96781FD8E7EB00F78FCA /* SearchViewController.swift in Sources */,
 				7F5B966F1FD8E74700F78FCA /* PlanViewController.swift in Sources */,
+				7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */,
+				7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */,
+				7F5B96801FD917B200F78FCA /* PlanRepository.swift in Sources */,
 				7F5B96701FD8E74700F78FCA /* PlanBuilder.swift in Sources */,
 				7F5B96581FD8E06800F78FCA /* AppComponent.swift in Sources */,
 				7F5B96671FD8E50200F78FCA /* RootBuilder.swift in Sources */,
 				7F5B96711FD8E74700F78FCA /* PlanInteractor.swift in Sources */,
+				7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */,
+				7F5B96821FD9354C00F78FCA /* PlanTableViewCell.swift in Sources */,
+				7F5B967D1FD9160100F78FCA /* Plan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

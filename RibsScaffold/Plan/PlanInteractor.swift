@@ -15,7 +15,8 @@ protocol PlanRouting: ViewableRouting {
 
 protocol PlanPresentable: Presentable {
     weak var listener: PlanPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    func setLoading(active: Bool)
+    func updateSource(plans: [Plan])
 }
 
 protocol PlanListener: class {
@@ -26,21 +27,30 @@ final class PlanInteractor: PresentableInteractor<PlanPresentable>, PlanInteract
 
     weak var router: PlanRouting?
     weak var listener: PlanListener?
+    weak var planRepository: PlanRequestable?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: PlanPresentable) {
+    init(presenter: PlanPresentable, planRepository: PlanRequestable) {
+        self.planRepository = planRepository
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
+        getPlans()
     }
 
     override func willResignActive() {
         super.willResignActive()
         // TODO: Pause any business logic.
+    }
+    
+    // Mark : - Private
+    private func getPlans() {
+        planRepository?.getPlans()
+            .subscribe(onNext: { plans in
+                self.presenter.updateSource(plans: plans)
+            })
+            .disposeOnDeactivate(interactor: self)
     }
 }

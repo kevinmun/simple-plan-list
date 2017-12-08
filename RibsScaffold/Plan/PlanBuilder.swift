@@ -9,13 +9,14 @@
 import RIBs
 
 protocol PlanDependency: Dependency {
-    // TODO: Declare the set of dependencies required by this RIB, but cannot be
-    // created by this RIB.
+    var planRepository: PlanRequestable { get }
+    
 }
 
 final class PlanComponent: Component<PlanDependency> {
-
-    // TODO: Declare 'fileprivate' dependencies that are only used by this RIB.
+    var planRepository: PlanRequestable {
+        return dependency.planRepository
+    }
 }
 
 // MARK: - Builder
@@ -33,7 +34,7 @@ final class PlanBuilder: Builder<PlanDependency>, PlanBuildable {
     func build(withListener listener: PlanListener?) -> PlanRouting {
         let component = PlanComponent(dependency: dependency)
         let viewController = PlanViewController()
-        let interactor = PlanInteractor(presenter: viewController)
+        let interactor = PlanInteractor(presenter: viewController, planRepository: component.planRepository)
         interactor.listener = listener
         return PlanRouter(interactor: interactor, viewController: viewController)
     }
