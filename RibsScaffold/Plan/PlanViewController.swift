@@ -73,7 +73,7 @@ final class PlanViewController: UIViewController, PlanPresentable, PlanViewContr
             maker.edges.equalToSuperview().inset(UIEdgeInsetsMake(0, 0, 0, 0))
         }
         tableView.rowHeight = UITableViewAutomaticDimension
-        tableView.estimatedRowHeight = 140
+        tableView.estimatedRowHeight = 50
         
         tableView.refreshControl = refreshControl
         refreshControl.addTarget(self, action: #selector(refreshPlan(_:)), for: .valueChanged)
