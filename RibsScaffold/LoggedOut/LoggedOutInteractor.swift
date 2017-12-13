@@ -44,10 +44,9 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
     }
     
     func login(withUsername username: String?, password: String?) {
-        if let username = username, let password = password, loginDisposable == nil {
-            loginDisposable = userRequestable?.login(username: username, password: password)
+        if let username = username, let password = password {
+            userRequestable?.login(username: username, password: password)
                 .subscribe(onNext: { [weak self] success in
-                    self?.loginDisposable = nil
                     if success {
                         self?.listener?.didLogin()
                     } else {
@@ -59,7 +58,17 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
         
     }
     
-    
-    // MARK : - Private
-    private var loginDisposable: Disposable?
+    func createUser(email: String?, password: String?) {
+        if let email = email, let password = password {
+            userRequestable?.createUser(email: email, password: password)
+                .subscribe(onNext: { [weak self] success in
+                    if success {
+                        self?.listener?.didLogin()
+                    } else {
+                        self?.presenter.didLoginError()
+                    }
+                })
+                .disposeOnDeactivate(interactor: self)
+        }
+    }
 }

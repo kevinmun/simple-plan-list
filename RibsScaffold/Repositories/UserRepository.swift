@@ -13,6 +13,7 @@ import FirebaseAuth
 protocol UserRequestable: class {
     var user: User? { get }
     func login(username: String, password: String) -> Observable<Bool>
+    func createUser(email: String, password: String) -> Observable<Bool>
 }
 
 final class UserRepository: UserRequestable {
@@ -36,4 +37,19 @@ final class UserRepository: UserRequestable {
             return Disposables.create()
         })
     }
+    
+    func createUser(email: String, password: String) -> Observable<Bool> {
+        return Observable.create({ (observer) -> Disposable in
+            Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+                if let _ = error {
+                    observer.onNext(false)
+                } else {
+                    observer.onNext(true)
+                }
+                observer.onCompleted()
+            }
+            return Disposables.create()
+        })
+    }
+    
 }

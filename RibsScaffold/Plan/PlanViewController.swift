@@ -76,9 +76,10 @@ final class PlanViewController: UIViewController, PlanViewControllable {
                                       preferredStyle: .alert)
         
         let saveAction = UIAlertAction(title: "Save",
-                                       style: .default) { action in
-            let textField = alert.textFields![0]
-            self.viewModel?.addPlan(title: textField.text!)
+                                       style: .default) { [weak alert = alert] action in
+            if let textField = alert?.textFields![0] {
+                self.viewModel?.addPlan(title: textField.text!)
+            }
         }
         let cancelAction = UIAlertAction(title: "Cancel",
                                          style: .default)

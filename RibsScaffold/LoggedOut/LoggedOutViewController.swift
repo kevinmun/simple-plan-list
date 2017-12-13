@@ -14,6 +14,7 @@ import SnapKit
 
 protocol LoggedOutPresentableListener: class {
     func login(withUsername: String?, password: String?)
+    func createUser(email: String?, password: String?)
 }
 
 final class LoggedOutViewController: UIViewController, LoggedOutPresentable, LoggedOutViewControllable {
@@ -86,6 +87,47 @@ final class LoggedOutViewController: UIViewController, LoggedOutPresentable, Log
             .subscribe(onNext: { [weak self] in
                 self?.view.activityIndicatorView.startAnimating()
                 self?.listener?.login(withUsername: usernameField.text, password: passwordField.text)
+            })
+            .disposed(by: disposeBag)
+        
+        let registerButton = UIButton()
+        view.addSubview(registerButton)
+        registerButton.snp.makeConstraints { (maker: ConstraintMaker) in
+            maker.top.equalTo(loginButton.snp.bottom).offset(20)
+            maker.left.right.height.equalTo(loginButton)
+        }
+        registerButton.setTitle("Register", for: .normal)
+        registerButton.setTitleColor(UIColor.white, for: .normal)
+        registerButton.backgroundColor = UIColor.gray
+        registerButton.rx.tap
+            .subscribe(onNext: { [unowned self] in
+                let alert = UIAlertController(title: "Register",
+                                              message: "Register",
+                                              preferredStyle: .alert)
+
+                let saveAction = UIAlertAction(title: "Save",
+                                               style: .default) {[unowned self, weak alert = alert] action in
+                    let emailFieldText = alert?.textFields![0].text
+                    let passwordFieldText = alert?.textFields![1].text
+                    self.listener?.createUser(email: emailFieldText, password: passwordFieldText)
+                }
+
+                let cancelAction = UIAlertAction(title: "Cancel",
+                                                 style: .default)
+
+                alert.addTextField { textEmail in
+                    textEmail.placeholder = "Enter your email"
+                }
+
+                alert.addTextField { textPassword in
+                    textPassword.isSecureTextEntry = true
+                    textPassword.placeholder = "Enter your password"
+                }
+
+                alert.addAction(saveAction)
+                alert.addAction(cancelAction)
+
+                self.present(alert, animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
     }
