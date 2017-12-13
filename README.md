@@ -9,3 +9,5 @@ Dependencies:
 5) Firebase/Database
 
 Install all dependencies via cocoapod
+
+Project requires GoogleService-info plist to work, place you services configuration plist in the project directory
