@@ -7,3 +7,5 @@ Dependencies:
 3) RxCocoa
 4) Firebase/Core
 5) Firebase/Database
+
+Install all dependencies via cocoapod
