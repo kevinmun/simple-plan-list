@@ -35,8 +35,7 @@ final class PlanRepository: PlanRequestable {
     }
     
     func savePlan(plan: Plan) {
-        let randomString = self.randomString(length: 5)
-        plansRef.child(randomString.lowercased()).setValue(plan.toAnyObject())
+        plansRef.childByAutoId().setValue(plan.toAnyObject())
     }
     
     func updatePlan(plan: Plan) {
@@ -49,22 +48,5 @@ final class PlanRepository: PlanRequestable {
     
     //MARK : - Private
     private let plansRef: DatabaseReference
-    
-    private func randomString(length: Int) -> String {
-        
-        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        let len = UInt32(letters.length)
-        
-        var randomString = ""
-        
-        for _ in 0 ..< length {
-            let rand = arc4random_uniform(len)
-            var nextChar = letters.character(at: Int(rand))
-            randomString += NSString(characters: &nextChar, length: 1) as String
-        }
-        
-        return randomString
-    }
-    
     
 }
