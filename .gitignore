@@ -17,6 +17,9 @@ xcuserdata/
 project.xcworkspace/
 DerivedData/
 
+#Firebase
+GoogleService-Info.plist
+
 # build products
 build/
 *.[oa]
