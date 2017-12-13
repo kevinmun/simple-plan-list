@@ -12,7 +12,6 @@ import FirebaseDatabase
 
 protocol PlanRequestable: class {
     func getPlans() -> Observable<[Plan]>
-    func addRandomPlan()
     func savePlan(plan: Plan)
     func updatePlan(plan: Plan)
 }
@@ -34,14 +33,9 @@ final class PlanRepository: PlanRequestable {
         }
     }
     
-    func addRandomPlan() {
-        let randomString = self.randomString(length: 5)
-        let plan = Plan(title: "Plan \(randomString)", imageUrl: "imageUrl \(randomString)", type: PlanType(rawValue: randomNumber(MIN: 0, MAX: 3))!, completed: false)
-        plansRef.child(randomString.lowercased()).setValue(plan.toAnyObject())
-    }
-    
     func savePlan(plan: Plan) {
-        
+        let randomString = self.randomString(length: 5)
+        plansRef.child(randomString.lowercased()).setValue(plan.toAnyObject())
     }
     
     func updatePlan(plan: Plan) {
@@ -65,10 +59,6 @@ final class PlanRepository: PlanRequestable {
         }
         
         return randomString
-    }
-    
-    private func randomNumber(MIN: Int, MAX: Int)-> Int{
-        return Int(arc4random_uniform(UInt32(MAX)) + UInt32(MIN));
     }
     
     

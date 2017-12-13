@@ -55,8 +55,8 @@ class PlanTableViewModel: Presenter<PlanViewController>, PlanMainPresentable {
     var listener: PlanPresentableListener?
     private(set) var dataSource: [PlanTableCellViewModel]?
     
-    func addRandomPlan() {
-        listener?.addRandomPlan()
+    func addPlan(title: String) {
+        listener?.addPlan(title: title)
     }
     
     func refreshPlan() {

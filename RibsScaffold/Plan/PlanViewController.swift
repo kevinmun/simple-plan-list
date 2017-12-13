@@ -13,7 +13,7 @@ import SnapKit
 
 protocol PlanPresentableListener: class {
     func refreshPlan()
-    func addRandomPlan()
+    func addPlan(title: String)
     func updatePlan(plan: Plan)
 }
 
@@ -70,7 +70,24 @@ final class PlanViewController: UIViewController, PlanViewControllable {
     }
     
     @objc private func didTapAddButton(sender: AnyObject) {
-        viewModel?.addRandomPlan()
+        let alert = UIAlertController(title: "New Plan",
+                                      message: "Add a Plan",
+                                      preferredStyle: .alert)
+        
+        let saveAction = UIAlertAction(title: "Save",
+                                       style: .default) { action in
+            let textField = alert.textFields![0]
+            self.viewModel?.addPlan(title: textField.text!)
+        }
+        let cancelAction = UIAlertAction(title: "Cancel",
+                                         style: .default)
+        
+        alert.addTextField()
+        
+        alert.addAction(saveAction)
+        alert.addAction(cancelAction)
+        
+        present(alert, animated: true, completion: nil)
     }
     
     private func buildTableView() {

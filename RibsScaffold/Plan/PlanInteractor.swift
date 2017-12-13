@@ -54,8 +54,9 @@ final class PlanInteractor: PresentableInteractor<PlanMainPresentable>, PlanInte
         getPlans()
     }
     
-    func addRandomPlan() {
-        planRepository?.addRandomPlan()
+    func addPlan(title: String) {
+        let plan = Plan(title: title, imageUrl: title, type: PlanType.randomPlanType(), completed: false)
+        planRepository?.savePlan(plan: plan)
         getPlans()
     }
     

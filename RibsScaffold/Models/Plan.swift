@@ -14,6 +14,14 @@ enum PlanType: Int {
     case SemiImportant
     case Normal
     case Trivial
+    
+    static func randomPlanType() -> PlanType {
+        return PlanType(rawValue: PlanType.randomNumber(MIN: 0, MAX: 3))!
+    }
+    
+    static private func randomNumber(MIN: Int, MAX: Int)-> Int{
+        return Int(arc4random_uniform(UInt32(MAX)) + UInt32(MIN))
+    }
 }
 struct Plan {
     let title: String
