@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import FirebaseDatabase
+import FirebaseAuth
 
 protocol PlanRequestable: class {
     func getPlans() -> Observable<[Plan]>
@@ -19,9 +20,7 @@ protocol PlanRequestable: class {
 
 final class PlanRepository: PlanRequestable {
     
-    init() {
-        plansRef = Database.database().reference(withPath: "plans")
-    }
+    init() { }
     
     func getPlans() -> Observable<[Plan]> {
         return plansRef.queryOrdered(byChild: "completed").rx_observeSingleEvent(of: .value).map { (snapShot) in
@@ -47,6 +46,8 @@ final class PlanRepository: PlanRequestable {
     }
     
     //MARK : - Private
-    private let plansRef: DatabaseReference
+    private var plansRef: DatabaseReference {
+        return Database.database().reference(withPath: Auth.auth().currentUser!.uid)
+    }
     
 }
