@@ -15,6 +15,7 @@ protocol PlanPresentableListener: class {
     func refreshPlan()
     func addPlan(title: String)
     func updatePlan(plan: Plan)
+    func removePlan(plan: Plan)
 }
 
 let CellIdentifier = "PlanUITableViewCell"
@@ -130,6 +131,19 @@ extension PlanViewController: UITableViewDataSource {
             cell.viewModel = planViewModel
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            if let planViewModel = viewModel?.dataSource?[indexPath.row] {
+                planViewModel.remove()
+                viewModel?.refreshPlan()
+            }
+        }
     }
 }
 

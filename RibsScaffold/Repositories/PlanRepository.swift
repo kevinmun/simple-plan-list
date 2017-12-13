@@ -14,6 +14,7 @@ protocol PlanRequestable: class {
     func getPlans() -> Observable<[Plan]>
     func savePlan(plan: Plan)
     func updatePlan(plan: Plan)
+    func removePlan(plan: Plan)
 }
 
 final class PlanRepository: PlanRequestable {
@@ -40,6 +41,10 @@ final class PlanRepository: PlanRequestable {
     
     func updatePlan(plan: Plan) {
         plan.ref?.updateChildValues(plan.toAnyObject() as! [AnyHashable : Any])
+    }
+    
+    func removePlan(plan: Plan) {
+        plan.ref?.removeValue()
     }
     
     //MARK : - Private

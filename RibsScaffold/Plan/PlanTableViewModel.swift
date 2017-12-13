@@ -44,6 +44,12 @@ class PlanTableCellViewModel: PlanPresentable {
         }
     }
     
+    func remove() {
+        if let plan = plan {
+            listener?.removePlan(plan: plan)
+        }
+    }
+    
     init(plan: Plan) {
         self.plan = plan
     }

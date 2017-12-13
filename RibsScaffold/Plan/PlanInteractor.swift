@@ -60,6 +60,10 @@ final class PlanInteractor: PresentableInteractor<PlanMainPresentable>, PlanInte
         getPlans()
     }
     
+    func removePlan(plan: Plan) {
+        planRepository?.removePlan(plan: plan)
+    }
+    
     func updatePlan(plan: Plan) {
         planRepository?.updatePlan(plan: plan)
         getPlans()
