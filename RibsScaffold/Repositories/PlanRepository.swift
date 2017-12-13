@@ -8,27 +8,68 @@
 
 import Foundation
 import RxSwift
+import FirebaseDatabase
 
 protocol PlanRequestable: class {
     func getPlans() -> Observable<[Plan]>
+    func addRandomPlan()
+    func savePlan(plan: Plan)
+    func updatePlan(plan: Plan)
 }
 
-final class MockPlanRepository: PlanRequestable {
-    //TODO: this should connect to a service which would return an observable stream
+final class PlanRepository: PlanRequestable {
+    
+    init() {
+        plansRef = Database.database().reference(withPath: "plans")
+    }
+    
     func getPlans() -> Observable<[Plan]> {
-         let planObservable = Observable<[Plan]>.create { observer in
+        return plansRef.queryOrdered(byChild: "completed").rx_observeSingleEvent(of: .value).map { (snapShot) in
             var plans = [Plan]()
-            for index in 0..<10 {
-                let plan = Plan(title: "Plan \(index)", imageUrl: "imageUrl \(index)", type: PlanType(rawValue: index%3)!)
+            for item in snapShot.children {
+                let plan = Plan(snapShot: item as! DataSnapshot)
                 plans.append(plan)
             }
-            observer.onNext(plans)
-            observer.onCompleted()
-            return Disposables.create()
+            return plans
+        }
+    }
+    
+    func addRandomPlan() {
+        let randomString = self.randomString(length: 5)
+        let plan = Plan(title: "Plan \(randomString)", imageUrl: "imageUrl \(randomString)", type: PlanType(rawValue: randomNumber(MIN: 0, MAX: 3))!, completed: false)
+        plansRef.child(randomString.lowercased()).setValue(plan.toAnyObject())
+    }
+    
+    func savePlan(plan: Plan) {
+        
+    }
+    
+    func updatePlan(plan: Plan) {
+        plan.ref?.updateChildValues(plan.toAnyObject() as! [AnyHashable : Any])
+    }
+    
+    //MARK : - Private
+    private let plansRef: DatabaseReference
+    
+    private func randomString(length: Int) -> String {
+        
+        let letters : NSString = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
+        let len = UInt32(letters.length)
+        
+        var randomString = ""
+        
+        for _ in 0 ..< length {
+            let rand = arc4random_uniform(len)
+            var nextChar = letters.character(at: Int(rand))
+            randomString += NSString(characters: &nextChar, length: 1) as String
         }
         
-        return planObservable
-            .delay(3.0, scheduler: ConcurrentDispatchQueueScheduler.init(qos: .default))
-            .observeOn(MainScheduler.instance)
+        return randomString
     }
+    
+    private func randomNumber(MIN: Int, MAX: Int)-> Int{
+        return Int(arc4random_uniform(UInt32(MAX)) + UInt32(MIN));
+    }
+    
+    
 }

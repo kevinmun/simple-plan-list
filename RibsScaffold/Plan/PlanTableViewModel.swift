@@ -28,6 +28,22 @@ class PlanTableCellViewModel: PlanPresentable {
         }
     }
     
+    var completed: Bool {
+        get {
+            if let plan = plan {
+                return plan.completed
+            }
+            return false
+        }
+    }
+    
+    func updateCompleted(completed: Bool) {
+        if var plan = plan {
+            plan.updateCompleted(completed: completed)
+            listener?.updatePlan(plan: plan)
+        }
+    }
+    
     init(plan: Plan) {
         self.plan = plan
     }
@@ -38,6 +54,10 @@ class PlanTableCellViewModel: PlanPresentable {
 class PlanTableViewModel: Presenter<PlanViewController>, PlanMainPresentable {
     var listener: PlanPresentableListener?
     private(set) var dataSource: [PlanTableCellViewModel]?
+    
+    func addRandomPlan() {
+        listener?.addRandomPlan()
+    }
     
     func refreshPlan() {
         listener?.refreshPlan()

@@ -1,35 +1,35 @@
 //
-//  SearchInteractor.swift
+//  ProfileInteractor.swift
 //  RibsScaffold
 //
-//  Created by Kevin Mun on 07/12/2017.
+//  Created by Kevin Mun on 13/12/2017.
 //  Copyright © 2017 kev. All rights reserved.
 //
 
 import RIBs
 import RxSwift
 
-protocol SearchRouting: ViewableRouting {
+protocol ProfileRouting: ViewableRouting {
     // TODO: Declare methods the interactor can invoke to manage sub-tree via the router.
 }
 
-protocol SearchPresentable: Presentable {
-    weak var listener: SearchPresentableListener? { get set }
+protocol ProfilePresentable: Presentable {
+    weak var listener: ProfilePresentableListener? { get set }
     // TODO: Declare methods the interactor can invoke the presenter to present data.
 }
 
-protocol SearchListener: class {
+protocol ProfileListener: class {
     // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
 }
 
-final class SearchInteractor: PresentableInteractor<SearchPresentable>, SearchInteractable, SearchPresentableListener {
+final class ProfileInteractor: PresentableInteractor<ProfilePresentable>, ProfileInteractable, ProfilePresentableListener {
 
-    weak var router: SearchRouting?
-    weak var listener: SearchListener?
+    weak var router: ProfileRouting?
+    weak var listener: ProfileListener?
 
     // TODO: Add additional dependencies to constructor. Do not perform any logic
     // in constructor.
-    override init(presenter: SearchPresentable) {
+    override init(presenter: ProfilePresentable) {
         super.init(presenter: presenter)
         presenter.listener = self
     }

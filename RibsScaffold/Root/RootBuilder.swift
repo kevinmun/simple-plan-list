@@ -12,7 +12,7 @@ protocol RootDependency: Dependency {
     var planRepository: PlanRequestable { get }
 }
 
-final class RootComponent: Component<RootDependency>, SearchDependency, PlanDependency {
+final class RootComponent: Component<RootDependency>, ProfileDependency, PlanDependency {
     var planRepository: PlanRequestable {
         return dependency.planRepository
     }
@@ -36,11 +36,12 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let interactor = RootInteractor(presenter: viewController)
         
         let planRouter = PlanBuilder(dependency: component).build(withListener: nil)
-        let searchRouter = SearchBuilder(dependency: component).build(withListener: nil)
+        let profileRouter = ProfileBuilder(dependency: component).build(withListener: nil)
         
-        let tabBarList = [planRouter.viewControllable, searchRouter.viewControllable] as? [UIViewController]
+        let planNav = UINavigationController(root: planRouter.viewControllable)
+        let tabBarList = [planNav, profileRouter.viewControllable] as? [UIViewController]
         viewController.viewControllers = tabBarList
         
-        return RootRouter(interactor: interactor, viewController: viewController, planRouter: planRouter, searchRouter: searchRouter)
+        return RootRouter(interactor: interactor, viewController: viewController, planRouter: planRouter, profileRouter: profileRouter)
     }
 }

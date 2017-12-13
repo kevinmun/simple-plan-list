@@ -10,7 +10,7 @@ import RIBs
 
 class AppComponent: Component<EmptyDependency>, RootDependency {
     var planRepository: PlanRequestable {
-        return shared { MockPlanRepository() }
+        return shared { PlanRepository() }
     }
     
     init() {

@@ -22,20 +22,20 @@ final class RootRouter: LaunchRouter<RootInteractable, RootViewControllable>, Ro
     init(interactor: RootInteractable,
                   viewController: RootViewControllable,
                   planRouter: PlanRouting,
-                  searchRouter: SearchRouting) {
+                  profileRouter: ProfileRouting) {
         self.planRouter = planRouter
-        self.searchRouter = searchRouter
+        self.profileRouter = profileRouter
         super.init(interactor: interactor, viewController: viewController)
         interactor.router = self
     }
     
     override func didLoad() {
         attachChild(self.planRouter)
-        attachChild(self.searchRouter)
+        attachChild(self.profileRouter)
     }
     
     
     // MARK : - Private
     private var planRouter: PlanRouting
-    private var searchRouter: SearchRouting
+    private var profileRouter: ProfileRouting
 }

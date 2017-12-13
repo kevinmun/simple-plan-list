@@ -22,13 +22,15 @@
 		7F5B966F1FD8E74700F78FCA /* PlanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B966B1FD8E74700F78FCA /* PlanViewController.swift */; };
 		7F5B96701FD8E74700F78FCA /* PlanBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B966C1FD8E74700F78FCA /* PlanBuilder.swift */; };
 		7F5B96711FD8E74700F78FCA /* PlanInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B966D1FD8E74700F78FCA /* PlanInteractor.swift */; };
-		7F5B96771FD8E7EB00F78FCA /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96731FD8E7EB00F78FCA /* SearchRouter.swift */; };
-		7F5B96781FD8E7EB00F78FCA /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96741FD8E7EB00F78FCA /* SearchViewController.swift */; };
-		7F5B96791FD8E7EB00F78FCA /* SearchBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96751FD8E7EB00F78FCA /* SearchBuilder.swift */; };
-		7F5B967A1FD8E7EB00F78FCA /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96761FD8E7EB00F78FCA /* SearchInteractor.swift */; };
 		7F5B967D1FD9160100F78FCA /* Plan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B967C1FD9160100F78FCA /* Plan.swift */; };
 		7F5B96801FD917B200F78FCA /* PlanRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B967F1FD917B200F78FCA /* PlanRepository.swift */; };
 		7F5B96821FD9354C00F78FCA /* PlanTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F5B96811FD9354C00F78FCA /* PlanTableViewCell.swift */; };
+		7F77CF8B1FE0BD9500F26107 /* UINavigationController+ViewControllable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF8A1FE0BD9400F26107 /* UINavigationController+ViewControllable.swift */; };
+		7F77CF8D1FE0CA5500F26107 /* Firebase+RxSwift.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF8C1FE0CA5500F26107 /* Firebase+RxSwift.swift */; };
+		7F77CF931FE0D26100F26107 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF8F1FE0D26100F26107 /* ProfileRouter.swift */; };
+		7F77CF941FE0D26100F26107 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF901FE0D26100F26107 /* ProfileViewController.swift */; };
+		7F77CF951FE0D26100F26107 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF911FE0D26100F26107 /* ProfileBuilder.swift */; };
+		7F77CF961FE0D26100F26107 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF921FE0D26100F26107 /* ProfileInteractor.swift */; };
 		7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */; };
 		7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */; };
 		7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */; };
@@ -80,13 +82,15 @@
 		7F5B966B1FD8E74700F78FCA /* PlanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanViewController.swift; sourceTree = "<group>"; };
 		7F5B966C1FD8E74700F78FCA /* PlanBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanBuilder.swift; sourceTree = "<group>"; };
 		7F5B966D1FD8E74700F78FCA /* PlanInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanInteractor.swift; sourceTree = "<group>"; };
-		7F5B96731FD8E7EB00F78FCA /* SearchRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
-		7F5B96741FD8E7EB00F78FCA /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
-		7F5B96751FD8E7EB00F78FCA /* SearchBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchBuilder.swift; sourceTree = "<group>"; };
-		7F5B96761FD8E7EB00F78FCA /* SearchInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
 		7F5B967C1FD9160100F78FCA /* Plan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plan.swift; sourceTree = "<group>"; };
 		7F5B967F1FD917B200F78FCA /* PlanRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanRepository.swift; sourceTree = "<group>"; };
 		7F5B96811FD9354C00F78FCA /* PlanTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlanTableViewCell.swift; sourceTree = "<group>"; };
+		7F77CF8A1FE0BD9400F26107 /* UINavigationController+ViewControllable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+ViewControllable.swift"; sourceTree = "<group>"; };
+		7F77CF8C1FE0CA5500F26107 /* Firebase+RxSwift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Firebase+RxSwift.swift"; sourceTree = "<group>"; };
+		7F77CF8F1FE0D26100F26107 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileRouter.swift; path = RibsScaffold/Profile/ProfileRouter.swift; sourceTree = SOURCE_ROOT; };
+		7F77CF901FE0D26100F26107 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = RibsScaffold/Profile/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
+		7F77CF911FE0D26100F26107 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileBuilder.swift; path = RibsScaffold/Profile/ProfileBuilder.swift; sourceTree = SOURCE_ROOT; };
+		7F77CF921FE0D26100F26107 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileInteractor.swift; path = RibsScaffold/Profile/ProfileInteractor.swift; sourceTree = SOURCE_ROOT; };
 		7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Association.swift"; sourceTree = "<group>"; };
@@ -172,7 +176,7 @@
 				7F98321C1FDA2716008AF04B /* Extensions */,
 				7F5B967E1FD9179C00F78FCA /* Repositories */,
 				7F5B967B1FD915F000F78FCA /* Models */,
-				7F5B96721FD8E7CC00F78FCA /* Search */,
+				7F77CF8E1FE0D23B00F26107 /* Profile */,
 				7F5B96691FD8E71900F78FCA /* Plan */,
 				7F5B96561FD8DFFF00F78FCA /* Root */,
 				7F9832261FDA7326008AF04B /* LoggedOut */,
@@ -244,17 +248,6 @@
 			path = Plan;
 			sourceTree = "<group>";
 		};
-		7F5B96721FD8E7CC00F78FCA /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				7F5B96731FD8E7EB00F78FCA /* SearchRouter.swift */,
-				7F5B96741FD8E7EB00F78FCA /* SearchViewController.swift */,
-				7F5B96751FD8E7EB00F78FCA /* SearchBuilder.swift */,
-				7F5B96761FD8E7EB00F78FCA /* SearchInteractor.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
 		7F5B967B1FD915F000F78FCA /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -271,12 +264,26 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		7F77CF8E1FE0D23B00F26107 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				7F77CF8F1FE0D26100F26107 /* ProfileRouter.swift */,
+				7F77CF901FE0D26100F26107 /* ProfileViewController.swift */,
+				7F77CF911FE0D26100F26107 /* ProfileBuilder.swift */,
+				7F77CF921FE0D26100F26107 /* ProfileInteractor.swift */,
+			);
+			name = Profile;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		7F98321C1FDA2716008AF04B /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 				7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */,
 				7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */,
 				7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */,
+				7F77CF8A1FE0BD9400F26107 /* UINavigationController+ViewControllable.swift */,
+				7F77CF8C1FE0CA5500F26107 /* Firebase+RxSwift.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -483,23 +490,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F9832221FDA5CA8008AF04B /* PlanTableViewModel.swift in Sources */,
-				7F5B96791FD8E7EB00F78FCA /* SearchBuilder.swift in Sources */,
+				7F77CF951FE0D26100F26107 /* ProfileBuilder.swift in Sources */,
 				7F98322E1FDA734C008AF04B /* LoggedOutInteractor.swift in Sources */,
 				7F98322D1FDA734C008AF04B /* LoggedOutBuilder.swift in Sources */,
 				7F5B96661FD8E50200F78FCA /* RootViewController.swift in Sources */,
 				7F5B96651FD8E50200F78FCA /* RootRouter.swift in Sources */,
-				7F5B96771FD8E7EB00F78FCA /* SearchRouter.swift in Sources */,
 				7F5B96681FD8E50200F78FCA /* RootInteractor.swift in Sources */,
 				7F5B96261FD8DE4000F78FCA /* AppDelegate.swift in Sources */,
-				7F5B967A1FD8E7EB00F78FCA /* SearchInteractor.swift in Sources */,
 				7F5B966E1FD8E74700F78FCA /* PlanRouter.swift in Sources */,
-				7F5B96781FD8E7EB00F78FCA /* SearchViewController.swift in Sources */,
+				7F77CF8B1FE0BD9500F26107 /* UINavigationController+ViewControllable.swift in Sources */,
+				7F77CF961FE0D26100F26107 /* ProfileInteractor.swift in Sources */,
+				7F77CF941FE0D26100F26107 /* ProfileViewController.swift in Sources */,
 				7F5B966F1FD8E74700F78FCA /* PlanViewController.swift in Sources */,
 				7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */,
 				7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */,
+				7F77CF8D1FE0CA5500F26107 /* Firebase+RxSwift.swift in Sources */,
 				7F5B96801FD917B200F78FCA /* PlanRepository.swift in Sources */,
 				7F5B96701FD8E74700F78FCA /* PlanBuilder.swift in Sources */,
 				7F5B96581FD8E06800F78FCA /* AppComponent.swift in Sources */,
+				7F77CF931FE0D26100F26107 /* ProfileRouter.swift in Sources */,
 				7F5B96671FD8E50200F78FCA /* RootBuilder.swift in Sources */,
 				7F5B96711FD8E74700F78FCA /* PlanInteractor.swift in Sources */,
 				7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */,

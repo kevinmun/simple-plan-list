@@ -69,6 +69,7 @@ class PlanTableViewCell: UITableViewCell {
             return
         }
         mainLabel.text = viewModel.planTitle
+        checkBox.isSelected = viewModel.completed
         if let planType = viewModel.planType {
             var color: UIColor?
             switch(planType) {
@@ -92,6 +93,7 @@ class PlanTableViewCell: UITableViewCell {
     
    @objc private func clickBox(sender: UIButton) {
         sender.isSelected = !sender.isSelected
+        viewModel?.updateCompleted(completed: sender.isSelected)
     }
     
     private lazy var subContentView: UIView = {

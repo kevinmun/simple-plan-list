@@ -13,6 +13,8 @@ import SnapKit
 
 protocol PlanPresentableListener: class {
     func refreshPlan()
+    func addRandomPlan()
+    func updatePlan(plan: Plan)
 }
 
 let CellIdentifier = "PlanUITableViewCell"
@@ -25,6 +27,8 @@ final class PlanViewController: UIViewController, PlanViewControllable {
     init() {
         super.init(nibName: nil, bundle: nil)
         tabBarItem = UITabBarItem(title: "Plan", image: nil, tag: 1)
+        title = "Plans"
+        setupNavBar()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -58,6 +62,16 @@ final class PlanViewController: UIViewController, PlanViewControllable {
     private lazy var tableView: UITableView = {
         return UITableView(frame: CGRect.zero)
     }()
+    
+    private func setupNavBar() {
+        let addButton = UIBarButtonItem(title: "Add", style: .plain, target: self, action: #selector(didTapAddButton(sender:)))
+
+        navigationItem.rightBarButtonItems = [addButton]
+    }
+    
+    @objc private func didTapAddButton(sender: AnyObject) {
+        viewModel?.addRandomPlan()
+    }
     
     private func buildTableView() {
         tableView.backgroundColor = UIColor.SystemGray
