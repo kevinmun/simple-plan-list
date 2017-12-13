@@ -40,5 +40,6 @@ public class AppDelegate: UIResponder, UIApplicationDelegate {
     
     private var launchRouter: LaunchRouting?
     private var planRepository: PlanRequestable?
+    private var userRepository: UserRequestable?
 }
 

@@ -13,6 +13,10 @@ class AppComponent: Component<EmptyDependency>, RootDependency {
         return shared { PlanRepository() }
     }
     
+    var userRepository: UserRequestable {
+        return shared { UserRepository() }
+    }
+    
     init() {
         super.init(dependency: EmptyComponent())
     }

@@ -15,7 +15,8 @@ protocol ProfileRouting: ViewableRouting {
 
 protocol ProfilePresentable: Presentable {
     weak var listener: ProfilePresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    
+    func updateUserName(username: String)
 }
 
 protocol ProfileListener: class {
@@ -26,17 +27,20 @@ final class ProfileInteractor: PresentableInteractor<ProfilePresentable>, Profil
 
     weak var router: ProfileRouting?
     weak var listener: ProfileListener?
-
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: ProfilePresentable) {
+    weak var userRepository: UserRequestable?
+    
+    var username: String? {
+        return userRepository?.user?.email
+    }
+    
+    init(presenter: ProfilePresentable, userRepository: UserRequestable) {
+        self.userRepository = userRepository
         super.init(presenter: presenter)
         presenter.listener = self
     }
 
     override func didBecomeActive() {
         super.didBecomeActive()
-        // TODO: Implement business logic here.
     }
 
     override func willResignActive() {

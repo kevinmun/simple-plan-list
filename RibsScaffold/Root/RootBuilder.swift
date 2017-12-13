@@ -10,9 +10,14 @@ import RIBs
 
 protocol RootDependency: Dependency {
     var planRepository: PlanRequestable { get }
+    var userRepository: UserRequestable { get }
 }
 
-final class RootComponent: Component<RootDependency>, ProfileDependency, PlanDependency {
+final class RootComponent: Component<RootDependency>, LoggedOutDependency, MainDependency {
+    var userRepository: UserRequestable {
+        return dependency.userRepository
+    }
+    
     var planRepository: PlanRequestable {
         return dependency.planRepository
     }
@@ -35,13 +40,9 @@ final class RootBuilder: Builder<RootDependency>, RootBuildable {
         let viewController = RootViewController()
         let interactor = RootInteractor(presenter: viewController)
         
-        let planRouter = PlanBuilder(dependency: component).build(withListener: nil)
-        let profileRouter = ProfileBuilder(dependency: component).build(withListener: nil)
+        let mainBuilder = MainBuilder(dependency: component)
+        let loggedOutBuilder = LoggedOutBuilder(dependency: component)
         
-        let planNav = UINavigationController(root: planRouter.viewControllable)
-        let tabBarList = [planNav, profileRouter.viewControllable] as? [UIViewController]
-        viewController.viewControllers = tabBarList
-        
-        return RootRouter(interactor: interactor, viewController: viewController, planRouter: planRouter, profileRouter: profileRouter)
+        return RootRouter(interactor: interactor, viewController: viewController, mainBuilder: mainBuilder, loggedOutBuilder: loggedOutBuilder)
     }
 }

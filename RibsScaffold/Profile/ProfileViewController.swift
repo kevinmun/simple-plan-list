@@ -9,11 +9,10 @@
 import RIBs
 import RxSwift
 import UIKit
+import SnapKit
 
 protocol ProfilePresentableListener: class {
-    // TODO: Declare properties and methods that the view controller can invoke to perform
-    // business logic, such as signIn(). This protocol is implemented by the corresponding
-    // interactor class.
+    var username: String? { get }
 }
 
 final class ProfileViewController: UIViewController, ProfilePresentable, ProfileViewControllable {
@@ -34,6 +33,29 @@ final class ProfileViewController: UIViewController, ProfilePresentable, Profile
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor.blue
+        view.backgroundColor = UIColor.white
+        buildUserLabel()
+        if let username = listener?.username {
+            updateUserName(username: username)
+        }
     }
+    
+    func updateUserName(username: String) {
+        userLabel?.text = username
+    }
+    
+    // MARK : - Private
+    private func buildUserLabel() {
+        userLabel = UILabel()
+        view.addSubview(userLabel!)
+        userLabel!.snp.makeConstraints { (maker: ConstraintMaker) in
+            maker.top.equalTo(self.view).offset(15)
+            maker.height.equalTo(40)
+            maker.left.equalTo(self.view).offset(15)
+            maker.right.equalTo(self.view).offset(-15)
+        }
+        userLabel!.textColor = UIColor.black
+    }
+    
+    private var userLabel: UILabel?
 }

@@ -15,21 +15,20 @@ protocol LoggedOutRouting: ViewableRouting {
 
 protocol LoggedOutPresentable: Presentable {
     weak var listener: LoggedOutPresentableListener? { get set }
-    // TODO: Declare methods the interactor can invoke the presenter to present data.
+    func didLoginError()
 }
 
 protocol LoggedOutListener: class {
-    // TODO: Declare methods the interactor can invoke to communicate with other RIBs.
+    func didLogin()
 }
 
 final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, LoggedOutInteractable, LoggedOutPresentableListener {
-
     weak var router: LoggedOutRouting?
     weak var listener: LoggedOutListener?
+    weak var userRequestable: UserRequestable?
 
-    // TODO: Add additional dependencies to constructor. Do not perform any logic
-    // in constructor.
-    override init(presenter: LoggedOutPresentable) {
+    init(presenter: LoggedOutPresentable, userRequestable: UserRequestable) {
+        self.userRequestable = userRequestable
         super.init(presenter: presenter)
         presenter.listener = self
     }
@@ -43,4 +42,24 @@ final class LoggedOutInteractor: PresentableInteractor<LoggedOutPresentable>, Lo
         super.willResignActive()
         // TODO: Pause any business logic.
     }
+    
+    func login(withUsername username: String?, password: String?) {
+        if let username = username, let password = password, loginDisposable == nil {
+            loginDisposable = userRequestable?.login(username: username, password: password)
+                .subscribe(onNext: { [weak self] success in
+                    self?.loginDisposable = nil
+                    if success {
+                        self?.listener?.didLogin()
+                    } else {
+                        self?.presenter.didLoginError()
+                    }
+                })
+                .disposeOnDeactivate(interactor: self)
+        }
+        
+    }
+    
+    
+    // MARK : - Private
+    private var loginDisposable: Disposable?
 }

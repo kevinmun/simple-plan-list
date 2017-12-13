@@ -31,6 +31,11 @@
 		7F77CF941FE0D26100F26107 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF901FE0D26100F26107 /* ProfileViewController.swift */; };
 		7F77CF951FE0D26100F26107 /* ProfileBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF911FE0D26100F26107 /* ProfileBuilder.swift */; };
 		7F77CF961FE0D26100F26107 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF921FE0D26100F26107 /* ProfileInteractor.swift */; };
+		7F77CF9C1FE0FC0600F26107 /* MainRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF981FE0FC0600F26107 /* MainRouter.swift */; };
+		7F77CF9D1FE0FC0600F26107 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF991FE0FC0600F26107 /* MainViewController.swift */; };
+		7F77CF9E1FE0FC0600F26107 /* MainBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF9A1FE0FC0600F26107 /* MainBuilder.swift */; };
+		7F77CF9F1FE0FC0600F26107 /* MainInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CF9B1FE0FC0600F26107 /* MainInteractor.swift */; };
+		7F77CFA11FE104DF00F26107 /* UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F77CFA01FE104DF00F26107 /* UserRepository.swift */; };
 		7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */; };
 		7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */; };
 		7F9832201FDA2C63008AF04B /* NSObject+Association.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */; };
@@ -91,6 +96,11 @@
 		7F77CF901FE0D26100F26107 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = RibsScaffold/Profile/ProfileViewController.swift; sourceTree = SOURCE_ROOT; };
 		7F77CF911FE0D26100F26107 /* ProfileBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileBuilder.swift; path = RibsScaffold/Profile/ProfileBuilder.swift; sourceTree = SOURCE_ROOT; };
 		7F77CF921FE0D26100F26107 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ProfileInteractor.swift; path = RibsScaffold/Profile/ProfileInteractor.swift; sourceTree = SOURCE_ROOT; };
+		7F77CF981FE0FC0600F26107 /* MainRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRouter.swift; sourceTree = "<group>"; };
+		7F77CF991FE0FC0600F26107 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		7F77CF9A1FE0FC0600F26107 /* MainBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainBuilder.swift; sourceTree = "<group>"; };
+		7F77CF9B1FE0FC0600F26107 /* MainInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainInteractor.swift; sourceTree = "<group>"; };
+		7F77CFA01FE104DF00F26107 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		7F98321A1FDA2629008AF04B /* UIColor+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+CustomColor.swift"; sourceTree = "<group>"; };
 		7F98321D1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+ActivityIndicator.swift"; sourceTree = "<group>"; };
 		7F98321F1FDA2C63008AF04B /* NSObject+Association.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Association.swift"; sourceTree = "<group>"; };
@@ -176,6 +186,7 @@
 				7F98321C1FDA2716008AF04B /* Extensions */,
 				7F5B967E1FD9179C00F78FCA /* Repositories */,
 				7F5B967B1FD915F000F78FCA /* Models */,
+				7F77CF971FE0FBEE00F26107 /* Main */,
 				7F77CF8E1FE0D23B00F26107 /* Profile */,
 				7F5B96691FD8E71900F78FCA /* Plan */,
 				7F5B96561FD8DFFF00F78FCA /* Root */,
@@ -260,6 +271,7 @@
 			isa = PBXGroup;
 			children = (
 				7F5B967F1FD917B200F78FCA /* PlanRepository.swift */,
+				7F77CFA01FE104DF00F26107 /* UserRepository.swift */,
 			);
 			path = Repositories;
 			sourceTree = "<group>";
@@ -274,6 +286,17 @@
 			);
 			name = Profile;
 			path = "New Group";
+			sourceTree = "<group>";
+		};
+		7F77CF971FE0FBEE00F26107 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				7F77CF981FE0FC0600F26107 /* MainRouter.swift */,
+				7F77CF991FE0FC0600F26107 /* MainViewController.swift */,
+				7F77CF9A1FE0FC0600F26107 /* MainBuilder.swift */,
+				7F77CF9B1FE0FC0600F26107 /* MainInteractor.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 		7F98321C1FDA2716008AF04B /* Extensions */ = {
@@ -490,9 +513,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				7F9832221FDA5CA8008AF04B /* PlanTableViewModel.swift in Sources */,
+				7F77CF9C1FE0FC0600F26107 /* MainRouter.swift in Sources */,
 				7F77CF951FE0D26100F26107 /* ProfileBuilder.swift in Sources */,
 				7F98322E1FDA734C008AF04B /* LoggedOutInteractor.swift in Sources */,
 				7F98322D1FDA734C008AF04B /* LoggedOutBuilder.swift in Sources */,
+				7F77CF9F1FE0FC0600F26107 /* MainInteractor.swift in Sources */,
 				7F5B96661FD8E50200F78FCA /* RootViewController.swift in Sources */,
 				7F5B96651FD8E50200F78FCA /* RootRouter.swift in Sources */,
 				7F5B96681FD8E50200F78FCA /* RootInteractor.swift in Sources */,
@@ -501,6 +526,9 @@
 				7F77CF8B1FE0BD9500F26107 /* UINavigationController+ViewControllable.swift in Sources */,
 				7F77CF961FE0D26100F26107 /* ProfileInteractor.swift in Sources */,
 				7F77CF941FE0D26100F26107 /* ProfileViewController.swift in Sources */,
+				7F77CFA11FE104DF00F26107 /* UserRepository.swift in Sources */,
+				7F77CF9D1FE0FC0600F26107 /* MainViewController.swift in Sources */,
+				7F77CF9E1FE0FC0600F26107 /* MainBuilder.swift in Sources */,
 				7F5B966F1FD8E74700F78FCA /* PlanViewController.swift in Sources */,
 				7F98321B1FDA2629008AF04B /* UIColor+CustomColor.swift in Sources */,
 				7F98321E1FDA2BFE008AF04B /* UIView+ActivityIndicator.swift in Sources */,
